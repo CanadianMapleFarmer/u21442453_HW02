@@ -22,19 +22,19 @@
             <a class="navbar-brand" href="./home.html"><i class="fa-solid fa-clapperboard fa-2x"></i></a>
           </div>
           <div class="nav navbar-right">
-            <a class="navbar-brand" href="./cart.html"><span><i class="fa-solid fa-cart-arrow-down fa-2x"></i></span><p id="cartNum"></p></a>
+            <a class="navbar-brand" href="./cart.html"><span><i class="fa-solid fa-cart-arrow-down fa-2x" id="cart-item-num"></i></span></a>
           </div>
         </div>
       </nav>
       <div class="container">
         <h1 class="row row-cols-lg-4 d-flex" id="title">Cart</h1>
         <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 d-flex justify-content-center" id="cart-container">
-          <table class="table">
+          <table class="table" style="margin-top: 10px;">
               <thead class="table-dark">
-                <th>Movie</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total Cost</th>
+                <th style="width: 40%;">Movie</th>
+                <th style="width: 20%;">Unit Price</th>
+                <th style="width: 20%;">Quantity</th>
+                <th style="width: 20%;">Total Cost</th>
               </thead>
             <tbody id="cart-items">
 
@@ -55,7 +55,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="./script.js"></script>
-    <script src="./movieData.js"></script>
+    <script type="text/javascript" src="./cartScript.js"></script>
 </body>
 </html>

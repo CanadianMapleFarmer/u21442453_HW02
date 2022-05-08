@@ -4,10 +4,13 @@ var numberInCart = 0;
 window.onload = function () {
   if (localStorage.hasOwnProperty("moviesInCart")) {
     micArr = JSON.parse(localStorage.getItem("moviesInCart"));
-  } else if (localStorage.hasOwnProperty("totalCost")) {
+  }
+  if (localStorage.hasOwnProperty("totalCost")) {
     totalCost = localStorage.getItem("totalCost");
-  } else if (localStorage.hasOwnProperty("numberInCart")) {
+  }
+  if (localStorage.hasOwnProperty("numberInCart")) {
     numberInCart = localStorage.getItem("numberInCart");
+    $("#cart-item-num").text(`${numberInCart}`);
   }
   $("#cart-item-num").text(`${numberInCart}`);
   let el = "";
@@ -60,11 +63,6 @@ window.onload = function () {
   }
 
   $("#modals").append(mo);
-
-  if (localStorage.hasOwnProperty("moviesInCart")) {
-    let el = `<div class="me-auto"><h3>No movies in cart yet.</h3></div>`;
-    $("#cart-container").append(el);
-  }
 };
 
 function isDuplicate(obj, arr) {
@@ -77,23 +75,24 @@ function isDuplicate(obj, arr) {
 $("body").on("click", "#btnBook-1", function () {
   micArr = micArr || [];
   if (isDuplicate(movObjArr[0], micArr)) {
-    let tempC = totalCost + movObjArr[0].ticket_price;
+    totalCost += movObjArr[0].ticket_price;
+    localStorage.setItem("totalCost", totalCost);
 
-    localStorage.setItem("totalCost", tempC);
+    micArr[0].tickets_in_cart += micArr[0].tickets_in_cart;
+    localStorage.setItem("moviesInCart", JSON.stringify(micArr));
 
     numberInCart++;
-
     localStorage.setItem("numberInCart", numberInCart);
     $("#cart-item-num").text(`${numberInCart}`);
     return;
   } else {
     let tic = movObjArr[0].tickets_in_cart;
-    movObjArr[0].ticket_price = tic + 1;
+    movObjArr[0].tickets_in_cart = tic + 1;
     micArr.push(movObjArr[0]);
     localStorage.setItem("moviesInCart", JSON.stringify(micArr));
-    let tempC = totalCost + movObjArr[0].ticket_price;
+    totalCost += movObjArr[0].ticket_price;
 
-    localStorage.setItem("totalCost", tempC);
+    localStorage.setItem("totalCost", totalCost);
 
     numberInCart++;
 
@@ -105,23 +104,24 @@ $("body").on("click", "#btnBook-1", function () {
 $("body").on("click", "#btnBook-2", function () {
   micArr = micArr || [];
   if (isDuplicate(movObjArr[1], micArr)) {
-    let tempC = totalCost + movObjArr[1].ticket_price;
+    totalCost += movObjArr[1].ticket_price;
+    localStorage.setItem("totalCost", totalCost);
 
-    localStorage.setItem("totalCost", tempC);
+    micArr[1].tickets_in_cart += micArr[1].tickets_in_cart;
+    localStorage.setItem("moviesInCart", JSON.stringify(micArr));
 
     numberInCart++;
-
     localStorage.setItem("numberInCart", numberInCart);
     $("#cart-item-num").text(`${numberInCart}`);
     return;
   } else {
     let tic = movObjArr[1].tickets_in_cart;
-    movObjArr[1].ticket_price = tic + 1;
+    movObjArr[1].tickets_in_cart = tic + 1;
     micArr.push(movObjArr[1]);
     localStorage.setItem("moviesInCart", JSON.stringify(micArr));
-    let tempC = totalCost + movObjArr[1].ticket_price;
+    totalCost += movObjArr[1].ticket_price;
 
-    localStorage.setItem("totalCost", tempC);
+    localStorage.setItem("totalCost", totalCost);
 
     numberInCart++;
 
@@ -133,23 +133,24 @@ $("body").on("click", "#btnBook-2", function () {
 $("body").on("click", "#btnBook-3", function () {
   micArr = micArr || [];
   if (isDuplicate(movObjArr[2], micArr)) {
-    let tempC = totalCost + movObjArr[2].ticket_price;
+    totalCost += movObjArr[2].ticket_price;
+    localStorage.setItem("totalCost", totalCost);
 
-    localStorage.setItem("totalCost", tempC);
+    micArr[2].tickets_in_cart += micArr[2].tickets_in_cart;
+    localStorage.setItem("moviesInCart", JSON.stringify(micArr));
 
     numberInCart++;
-
     localStorage.setItem("numberInCart", numberInCart);
     $("#cart-item-num").text(`${numberInCart}`);
     return;
   } else {
     let tic = movObjArr[2].tickets_in_cart;
-    movObjArr[2].ticket_price = tic + 1;
+    movObjArr[2].tickets_in_cart = tic + 1;
     micArr.push(movObjArr[2]);
     localStorage.setItem("moviesInCart", JSON.stringify(micArr));
-    let tempC = totalCost + movObjArr[2].ticket_price;
+    totalCost += movObjArr[2].ticket_price;
 
-    localStorage.setItem("totalCost", tempC);
+    localStorage.setItem("totalCost", totalCost);
 
     numberInCart++;
 
@@ -161,23 +162,24 @@ $("body").on("click", "#btnBook-3", function () {
 $("body").on("click", "#btnBook-4", function () {
   micArr = micArr || [];
   if (isDuplicate(movObjArr[3], micArr)) {
-    let tempC = totalCost + movObjArr[3].ticket_price;
+    totalCost += movObjArr[3].ticket_price;
+    localStorage.setItem("totalCost", totalCost);
 
-    localStorage.setItem("totalCost", tempC);
+    micArr[3].tickets_in_cart += micArr[3].tickets_in_cart;
+    localStorage.setItem("moviesInCart", JSON.stringify(micArr));
 
     numberInCart++;
-
     localStorage.setItem("numberInCart", numberInCart);
     $("#cart-item-num").text(`${numberInCart}`);
     return;
   } else {
     let tic = movObjArr[3].tickets_in_cart;
-    movObjArr[3].ticket_price = tic + 1;
+    movObjArr[3].tickets_in_cart = tic + 1;
     micArr.push(movObjArr[3]);
     localStorage.setItem("moviesInCart", JSON.stringify(micArr));
-    let tempC = totalCost + movObjArr[3].ticket_price;
+    totalCost += movObjArr[3].ticket_price;
 
-    localStorage.setItem("totalCost", tempC);
+    localStorage.setItem("totalCost", totalCost);
 
     numberInCart++;
 
