@@ -1,3 +1,6 @@
+/* Only used for specific use cases. 
+The rest of the css is done inline, 
+because bootstrap is the main styling tool*/
 #title {
     margin-top: 15px;
 }

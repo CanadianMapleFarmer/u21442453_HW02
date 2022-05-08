@@ -1,7 +1,10 @@
+// Variable initialization.
 var micArr = [];
 var totalCost = 0;
 var numberInCart = 0;
+// onload used to load data and dynamically load webpage.
 window.onload = function () {
+  // Data loaded from existing localStorage if exists.
   if (localStorage.hasOwnProperty("moviesInCart")) {
     micArr = JSON.parse(localStorage.getItem("moviesInCart"));
   }
@@ -13,6 +16,7 @@ window.onload = function () {
     $("#cart-item-num").text(`${numberInCart}`);
   }
   $("#cart-item-num").text(`${numberInCart}`);
+  // Data read from movObjArr in the movieData.js file and loaded into home.html
   let el = "";
   for (let i = 0; i < movObjArr.length; i++) {
     el +=
@@ -41,6 +45,7 @@ window.onload = function () {
 
   $("#movie_stand").append(el);
 
+  // Modal data is loaded in the home.html for later use.
   let mo = "";
   for (let i = 0; i < movObjArr.length; i++) {
     mo +=
@@ -65,6 +70,7 @@ window.onload = function () {
   $("#modals").append(mo);
 };
 
+// Duplicate checker for movie objects before store in localStorage as an objArr
 function isDuplicate(obj, arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === obj) return true;
@@ -72,8 +78,10 @@ function isDuplicate(obj, arr) {
   return false;
 }
 
+// button listeners, used due to dynamic loading of webpage.
 $("body").on("click", "#btnBook-1", function () {
   micArr = micArr || [];
+  // Data is loaded into localStorage and cart icon number in navbar is updated
   if (isDuplicate(movObjArr[0], micArr)) {
     totalCost += movObjArr[0].ticket_price;
     localStorage.setItem("totalCost", totalCost);
@@ -86,6 +94,7 @@ $("body").on("click", "#btnBook-1", function () {
     $("#cart-item-num").text(`${numberInCart}`);
     return;
   } else {
+    // Data is loaded into localStorage and cart icon number in navbar is updated
     let tic = movObjArr[0].tickets_in_cart;
     movObjArr[0].tickets_in_cart = tic + 1;
     micArr.push(movObjArr[0]);
@@ -188,6 +197,7 @@ $("body").on("click", "#btnBook-4", function () {
   }
 });
 
+// troubleshooting functions used for localStorage (if need be)
 function clearStorage() {
   localStorage.clear();
 }
